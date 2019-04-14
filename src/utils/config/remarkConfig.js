@@ -5,9 +5,9 @@ module.exports = {
       {
         resolve: "gatsby-remark-normalize-paths"
       },
-      /* {
+      {
         resolve: `gatsby-remark-relative-images`
-      }, */
+      },
       {
         resolve: `gatsby-remark-images`,
         options: {

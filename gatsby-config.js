@@ -1,4 +1,4 @@
-const remarkConfig = require("./src/utils/config/remarkConfig.js")
+//const remarkConfig = require("./src/utils/config/remarkConfig.js")
 const config = require("./src/utils/config/config")
 const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix
 
@@ -37,7 +37,34 @@ module.exports = {
         path: `${__dirname}/content`
       }
     },
-    remarkConfig,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-normalize-paths"
+          },
+          {
+            resolve: `gatsby-remark-relative-images`
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+              linkImagesToOriginal: true,
+              quality: 100,
+              withWebp: true
+            }
+          },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank"
+            }
+          }
+        ]
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-styled-components`,
