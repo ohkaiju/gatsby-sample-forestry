@@ -1,0 +1,13 @@
+---
+label: Album
+hide_body: false
+display_field: title
+fields:
+- type: text
+  label: Nom
+  name: title
+  config:
+    required: true
+- type: image_gallery
+  name: photos
+  label: Photos

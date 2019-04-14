@@ -1,0 +1,33 @@
+{
+  "name": "gatsby-starter-forestry",
+  "version": "1.0.0",
+  "description": "minimal photography portfolio",
+  "main": "index.js",
+  "author": "Ohkaiju",
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.10.0",
+    "gatsby": "^2.3.22",
+    "gatsby-image": "^2.0.38",
+    "gatsby-plugin-manifest": "^2.0.29",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sharp": "^2.0.34",
+    "gatsby-plugin-styled-components": "^3.0.7",
+    "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-images": "^3.0.10",
+    "gatsby-remark-relative-images": "^0.2.2",
+    "gatsby-source-filesystem": "^2.0.29",
+    "gatsby-transformer-remark": "^2.3.8",
+    "gatsby-transformer-sharp": "^2.1.18",
+    "gatsby-transformer-yaml": "^2.1.11",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.0",
+    "react-icons": "^3.5.0",
+    "react-share": "^2.4.0",
+    "react-spring": "^8.0.19",
+    "rebass": "^3.1.0",
+    "styled-components": "^4.2.0",
+    "styled-system": "^4.1.0"
+  }
+}
