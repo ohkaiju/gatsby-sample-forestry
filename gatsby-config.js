@@ -44,9 +44,10 @@ module.exports = {
           {
             resolve: "gatsby-remark-normalize-paths"
           },
-          {
+          `gatsby-remark-copy-linked-files`,
+/*           {
             resolve: `gatsby-remark-relative-images`
-          },
+          }, */
           {
             resolve: `gatsby-remark-images`,
             options: {

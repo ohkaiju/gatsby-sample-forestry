@@ -1,5 +1,5 @@
 ---
-title: album 1
+title: "album 1"
 photos:
 - "/content/images/cougar_hot_springs_trail.jpg"
 
