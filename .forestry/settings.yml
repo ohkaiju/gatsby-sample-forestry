@@ -5,7 +5,7 @@ admin_path:
 webhook_url: 
 sections:
 - type: document
-  path: content
+  path: content/link.yaml
   label: Navigation
 - type: directory
   path: content/albums
