@@ -1,8 +1,9 @@
+---
 - title: instagram
   url: https://www.instagram.com/avengers/
   kind:
     source:
-        type: ustom
+        type: custom
     options:
         - "internal"
         - "external"
@@ -10,7 +11,7 @@
   url: https://www.tumblr.com/tagged/avengers
   kind:
     source:
-        type: ustom
+        type: custom
     options:
         - "internal"
         - "external"
@@ -18,7 +19,7 @@
   url: hellohulkand@captain.com
   kind:
     source:
-        type: ustom
+        type: custom
     options:
         - "internal"
         - "external"
