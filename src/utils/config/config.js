@@ -6,7 +6,7 @@ module.exports = {
     siteHeadline: 'Gatsby sample', // Headline for schema.org JSONLD
     siteUrl: 'https://gatsby-forestry-photography.netlify.com', // Domain of your site. No trailing slash!
     siteLanguage: 'fr', // Language Tag on <html> element
-    siteLogo: 'content/sample_icon.png', // Used for SEO and manifest
+    siteLogo: 'content/images/sample_icon.png', // Used for SEO and manifest
     siteDescription: 'Gatsby sample',
     author: 'ohkaiju', // Author for schema.org JSONLD
     themeColor: '#db7436',
