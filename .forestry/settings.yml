@@ -4,15 +4,18 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
+- type: document
+  path: content
+  label: Navigation
 - type: directory
-  path: uploads/docs
-  label: Séries
+  path: content/albums
+  label: Albums
   create: all
   match: "**/*"
   templates:
   - album
-upload_dir: uploads/images
-public_path: "/uploads/images"
+upload_dir: content
+public_path: "/content"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
