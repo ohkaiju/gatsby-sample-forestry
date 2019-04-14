@@ -1,13 +1,7 @@
 ---
 - title: instagram
   url: https://www.instagram.com/avengers/
-  type:
-    use_select: [true|false]
 - title: tumblr
   url: https://www.tumblr.com/tagged/avengers
-  type:
-    use_select: [true|false]
 - title: email
   url: hellohulkand@captain.com
-  type:
-    use_select: [true|false]
