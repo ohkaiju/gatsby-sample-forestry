@@ -38,9 +38,6 @@ const Figure = styled(
   position: relative;
   display: block;
   &:hover {
-    img {
-      filter: invert(0.6);
-    }
     figcaption {
       opacity: 1;
       transition: 0.2s;
