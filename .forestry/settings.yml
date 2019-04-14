@@ -7,7 +7,6 @@ sections:
 - type: document
   path: content
   label: Navigation
-  match: "**/*"
 - type: directory
   path: content/albums
   label: Albums
@@ -15,8 +14,8 @@ sections:
   match: "**/*"
   templates:
   - album
-upload_dir: uploads/images
-public_path: "/uploads/images"
+upload_dir: content
+public_path: "/content"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
