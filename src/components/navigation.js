@@ -10,16 +10,11 @@ const Wrap = styled(Box)`
   margin-right: 0;
   overflow: ${props => (props.noScoll ? "hidden" : "auto")};
 `
-const Main = styled(Box)``
 
 const Link = styled(RebassLink)`
   display: block;
   width: fit-content;
   text-decoration: none;
-`
-const Title = styled(Heading)`
-  text-decoration: none;
-  font-weight: 400;
 `
 
 const Navigation = () => {
@@ -46,8 +41,8 @@ const Navigation = () => {
             <Text fontFamily="sUI" color="secondary" pr={1}>
               {node.title}
             </Text>
-            <FaExternalLinkAlt color="black" />
-          </Flex>
+{/*             <FaExternalLinkAlt color="black" />
+ */}          </Flex>
         </Link>
       ))}
     </Flex>
