@@ -11,5 +11,3 @@ fields:
 - type: image_gallery
   name: photos
   label: Photos
-pages:
-- content/albums/album_2/album-2.md
