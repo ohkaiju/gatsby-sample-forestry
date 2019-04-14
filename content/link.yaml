@@ -1,18 +1,24 @@
 - title: instagram
   url: https://www.instagram.com/avengers/
-  type:
+  kind:
+    source:
+        type: ustom
     options:
-        - to: 'interne'
-        - href: 'externe'
+        - "internal"
+        - "external"
 - title: tumblr
   url: https://www.tumblr.com/tagged/avengers
-  type:
+  kind:
+    source:
+        type: ustom
     options:
-        - to: 'interne'
-        - href: 'externe'
+        - "internal"
+        - "external"
 - title: email
   url: hellohulkand@captain.com
-  type:
+  kind:
+    source:
+        type: ustom
     options:
-        - to: 'interne'
-        - href: 'externe'
+        - "internal"
+        - "external"
