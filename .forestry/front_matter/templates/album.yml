@@ -12,6 +12,7 @@ fields:
   name: photos
   label: Photos
 pages:
+- assets/album-5.md
 - assets/album-4.md
 - assets/album-2.md
 - assets/album-3.md
