@@ -11,3 +11,5 @@ fields:
 - type: image_gallery
   name: photos
   label: Photos
+pages:
+- assets/album-2.md
