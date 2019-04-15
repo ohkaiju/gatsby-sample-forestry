@@ -16,8 +16,8 @@ sections:
   - album
 upload_dir: assets
 public_path: "/assets"
-front_matter_path: ''
-use_front_matter_path: false
+front_matter_path: ".."
+use_front_matter_path: true
 file_template: ":filename:"
 build:
   preview_command: gatsby build
