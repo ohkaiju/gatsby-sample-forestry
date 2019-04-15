@@ -5,10 +5,10 @@ admin_path:
 webhook_url: 
 sections:
 - type: document
-  path: content/link.yaml
+  path: src/config/link.yaml
   label: Navigation
 - type: directory
-  path: content/albums
+  path: assets
   label: Albums
   create: all
   match: "**/*"
