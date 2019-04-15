@@ -15,6 +15,7 @@ const Link = styled(RebassLink)`
   display: block;
   width: fit-content;
   text-decoration: none;
+  color: #22D799;
 `
 
 const Navigation = () => {
@@ -36,9 +37,9 @@ const Navigation = () => {
   return (
     <Flex flexDirection="column" alignItems="flex-end">
       {edges.map(({ node }) => (
-        <Link as="a" href={node.url}>
+        <Link as="a" href={node.url} color="green">
           <Flex>
-            <Text fontFamily="sUI" color="secondary" pr={1}>
+            <Text fontFamily="sUI" pr={1}>
               {node.title}
             </Text>
 {/*             <FaExternalLinkAlt color="black" />

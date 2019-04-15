@@ -6,12 +6,15 @@ import styled, { ThemeProvider } from "styled-components"
 import { Box, Flex, Heading, Link, Text } from "rebass"
 import WrapContext from "../utils/wrapContext"
 import Navigation from './navigation'
-const Wrap = styled(Box)`
+const Wrap = styled(Flex)`
+  flex-direction: column;
   min-height: 100vh;
   margin-right: 0;
   overflow: ${props => (props.noScoll ? "hidden" : "auto")};
 `
-const Main = styled(Box)``
+const Main = styled(Box)`
+height: max-content;
+`
 
 const SLink = styled(Link)`
   display: block;
@@ -40,15 +43,15 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Wrap width={1} p={[1, 3, 4]} noScroll={context.modal !== ""}>
         <Base />
-        <Flex width={1} p={[1,2]} justifyContent="space-between" alignItems="baseline">
+        <Flex width={1} p={[1,2]} justifyContent="space-between" alignItems="baseline" bg="dark">
           <SLink as={GLink} to="/">
-            <Title as="h1" id="top" fontFamily="sUI" color="secondary">
+            <Title as="h1" id="top" fontFamily="sUI" color="secondary" color="light">
               {siteMetadata.title}
             </Title>
           </SLink>
           <Navigation />
         </Flex>
-        <Main as="main" width={1} bg="primary">
+        <Main as="main" width={1} bg="primary" border="pink">
           {children}
         </Main>
       </Wrap>

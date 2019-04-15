@@ -14,6 +14,7 @@ import {
   TumblrIcon,
   EmailIcon
 } from "react-share"
+import { colors } from '../styles/theme'
 
 const Link = styled(RLink)`
   text-decoration: none;
@@ -26,6 +27,9 @@ const ShareButton = styled(Button)`
     opacity: 0.8;
     cursor: pointer;
   }
+`
+
+const Left = styled(Box)`
 `
 
 const Content = styled(Text)`
@@ -44,7 +48,7 @@ const BlogPostTemplate = ({ data: { markdownRemark } }) => {
   return (
     <Layout>
       <Flex width={1} flexWrap="wrap">
-        <Box width={[1, 1, 1 / 2, 1 / 2]} p={[1, 2]} pr={[1, 2, 4]}>
+        <Left width={[1, 1, 1 / 2, 1 / 2]} p={[1, 2]} pr={[1, 2, 4]}>
           <Flex width={1} justifyContent="flex-end" alignItems="flex-end">
             <Link as={GLink} color="secondary" to="/">
               <Text fontFamily="sUI">Retour</Text>
@@ -77,7 +81,7 @@ const BlogPostTemplate = ({ data: { markdownRemark } }) => {
             color="secondary"
             dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
           />
-        </Box>
+        </Left>
         <Box width={[1, 1, 1 / 2, 1 / 2]}>
           <Gallery edges={images} />
         </Box>

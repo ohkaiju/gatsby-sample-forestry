@@ -1,7 +1,7 @@
 export const colors = {
-  white: "#fff",
-  yellow: "#FEE567",
-  dark: "#181818",
+  light: "#FFFFFF",
+  green: "##22D799",
+  dark: "#1C1C1C",
   red: "#AB2E2C",
   primary: "white",
   secondary: "black"
@@ -18,6 +18,10 @@ export default {
   },
   colors,
   column: [2],
+  borders: {
+    black: "1px solid black",
+    pink: "1px solid pink"
+  },
   fonts: {
     sUI: "system-ui"
   },
