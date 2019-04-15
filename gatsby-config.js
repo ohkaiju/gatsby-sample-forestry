@@ -1,5 +1,5 @@
 //const remarkConfig = require("./src/utils/config/remarkConfig.js")
-const config = require("./src/utils/config/config")
+const config = require("./src/config/config")
 const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix
 
 module.exports = {
@@ -33,21 +33,23 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `content`,
-        path: `${__dirname}/content`
+        name: `assets`,
+        path: `${__dirname}/src/assets`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `config`,
+        path: `${__dirname}/src/config`
       }
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: "gatsby-remark-normalize-paths"
-          },
+          `gatsby-remark-relative-images`,
           `gatsby-remark-copy-linked-files`,
-/*           {
-            resolve: `gatsby-remark-relative-images`
-          }, */
           {
             resolve: `gatsby-remark-images`,
             options: {
