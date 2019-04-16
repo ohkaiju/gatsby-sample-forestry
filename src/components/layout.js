@@ -3,7 +3,7 @@ import { Link as GLink, useStaticQuery, graphql } from "gatsby"
 import theme from "../styles/theme"
 import { Base } from "../styles/base"
 import styled, { ThemeProvider } from "styled-components"
-import { Box, Flex, Heading, Link, Text } from "rebass"
+import { Box, Flex, Heading, Link } from "rebass"
 import WrapContext from "../utils/wrapContext"
 import Navigation from './navigation'
 const Wrap = styled(Flex)`
@@ -43,9 +43,9 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Wrap width={1} p={[1, 3, 4]} noScroll={context.modal !== ""}>
         <Base />
-        <Flex width={1} p={[1,2]} justifyContent="space-between" alignItems="baseline" bg="dark">
+        <Flex width={1} p={[1,2]} justifyContent="space-between" alignItems="baseline">
           <SLink as={GLink} to="/">
-            <Title as="h1" id="top" fontFamily="sUI" color="secondary" color="light">
+            <Title as="h1" id="top" fontFamily="sUI" color="secondary">
               {siteMetadata.title}
             </Title>
           </SLink>
