@@ -1,6 +1,6 @@
 //const remarkConfig = require("./src/utils/config/remarkConfig.js")
-const config = require("./src/config/config")
-const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix
+const config = require("./src/config/config");
+const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 
 module.exports = {
   siteMetadata: {
@@ -13,29 +13,30 @@ module.exports = {
     headline: config.siteHeadline,
     siteLanguage: config.siteLanguage,
     //ogLanguage: config.ogLanguage,
-    author: config.author
+    author: config.author,
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
-        path: `${__dirname}/assets`
-      }
+        path: `${__dirname}/assets`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `config`,
-        path: `${__dirname}/src/config`
-      }
+        path: `${__dirname}/src/config`,
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
           //`gatsby-remark-relative-images`,
           `gatsby-remark-copy-linked-files`,
           {
@@ -44,17 +45,17 @@ module.exports = {
               maxWidth: 1200,
               linkImagesToOriginal: true,
               quality: 100,
-              withWebp: true
-            }
+              withWebp: true,
+            },
           },
           {
             resolve: "gatsby-remark-external-links",
             options: {
-              target: "_blank"
-            }
-          }
-        ]
-      }
+              target: "_blank",
+            },
+          },
+        ],
+      },
     },
 
     `gatsby-transformer-yaml`,
@@ -70,8 +71,8 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: "standalone",
-        icon: config.siteLogo // This path is relative to the root of the site.
-      }
-    }
-  ]
-}
+        icon: config.siteLogo, // This path is relative to the root of the site.
+      },
+    },
+  ],
+};

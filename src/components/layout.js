@@ -1,34 +1,51 @@
-import React, { useContext } from "react"
-import { Link as GLink, useStaticQuery, graphql } from "gatsby"
-import theme from "../styles/theme"
-import { Base } from "../styles/base"
-import styled, { ThemeProvider } from "styled-components"
-import { Box, Flex, Heading, Link } from "rebass"
-import WrapContext from "../utils/wrapContext"
-import Navigation from './navigation'
-const Wrap = styled(Flex)`
+import React, { useContext } from "react";
+import { Link as GLink, useStaticQuery, graphql } from "gatsby";
+import theme from "../styles/theme";
+import { Base } from "../styles/base";
+import styled, { ThemeProvider } from "styled-components";
+import WrapContext from "../utils/wrapContext";
+import Navigation from "./navigation";
+
+const Wrap = styled.div`
+  display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin-right: 0;
-  overflow: ${props => (props.noScoll ? "hidden" : "auto")};
-`
-const Main = styled(Box)`
-height: max-content;
-`
+  overflow: ${(props) => (props.noScoll ? "hidden" : "auto")};
 
-const SLink = styled(Link)`
+  padding: 16px 4px;
+  @media (min-width: 768px) {
+    padding: 16px 32px;
+  }
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 4px 4px;
+  @media (min-width: 768px) {
+    padding: 4px 8px;
+  }
+`;
+
+const Main = styled.div`
+  height: max-content;
+`;
+
+const SLink = styled(GLink)`
   display: block;
   width: fit-content;
   text-decoration: none;
-`
-const Title = styled(Heading)`
+`;
+const Title = styled.h1`
   text-decoration: none;
   font-weight: 400;
-`
+`;
 
 const Layout = ({ children }) => {
   const {
-    site: { siteMetadata }
+    site: { siteMetadata },
   } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -37,26 +54,24 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
-  const context = useContext(WrapContext)
+  `);
+  const context = useContext(WrapContext);
   return (
     <ThemeProvider theme={theme}>
-      <Wrap width={1} p={[1, 3, 4]} noScroll={context.modal !== ""}>
+      <Wrap noScroll={context.modal !== ""}>
         <Base />
-        <Flex width={1} p={[1,2]} justifyContent="space-between" alignItems="baseline">
-          <SLink as={GLink} to="/">
-            <Title as="h1" id="top" fontFamily="sUI" color="secondary">
-              {siteMetadata.title}
-            </Title>
+        <Header>
+          <SLink to="/">
+            <Title id="top">{siteMetadata.title}</Title>
           </SLink>
           <Navigation />
-        </Flex>
-        <Main as="main" width={1} bg="primary" border="pink">
+        </Header>
+        <Main as="main" bg="primary" border="pink">
           {children}
         </Main>
       </Wrap>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

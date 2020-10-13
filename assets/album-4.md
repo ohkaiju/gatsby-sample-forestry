@@ -1,7 +1,7 @@
 ---
 title: album 4
 photos:
-- "./lago_di_braies.jpg"
+- "./images/lago_di_braies.jpg"
 
 ---
 test

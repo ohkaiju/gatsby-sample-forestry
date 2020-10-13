@@ -1,26 +1,23 @@
-import React, { useContext } from "react"
-import { Link as GatsbyLink, useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
-import { Box, Flex, Heading, Link as RebassLink, Text } from "rebass"
-import WrapContext from "../utils/wrapContext"
-import { FaExternalLinkAlt } from "react-icons/fa"
+import React, { useContext } from "react";
+import { Link as GatsbyLink, useStaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
+import { Box, Flex, Heading, Link as RebassLink, Text } from "rebass";
 
-const Wrap = styled(Box)`
-  min-height: 100vh;
-  margin-right: 0;
-  overflow: ${props => (props.noScoll ? "hidden" : "auto")};
-`
-
-const Link = styled(RebassLink)`
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+const Link = styled.a`
   display: block;
   width: fit-content;
   text-decoration: none;
-  color: #22D799;
-`
+  color: #22d799;
+`;
 
 const Navigation = () => {
   const {
-    allLinkYaml: { edges }
+    allLinkYaml: { edges },
   } = useStaticQuery(graphql`
     query NavQuery {
       allLinkYaml {
@@ -33,21 +30,16 @@ const Navigation = () => {
         }
       }
     }
-  `)
+  `);
   return (
-    <Flex flexDirection="column" alignItems="flex-end">
+    <Nav>
       {edges.map(({ node }) => (
-        <Link as="a" href={node.url} color="green">
-          <Flex>
-            <Text fontFamily="sUI" pr={1}>
-              {node.title}
-            </Text>
-{/*             <FaExternalLinkAlt color="black" />
- */}          </Flex>
+        <Link href={node.url}>
+          <p>{node.title}</p>
         </Link>
       ))}
-    </Flex>
-  )
-}
+    </Nav>
+  );
+};
 
-export default Navigation
+export default Navigation;

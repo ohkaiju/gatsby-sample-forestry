@@ -1,9 +1,9 @@
-import React from "react"
-import { graphql, Link as GLink } from "gatsby"
-import { Box, Button, Flex, Heading, Image, Link as RLink, Text } from "rebass"
-import Gallery from "../components/gallery"
-import styled from "styled-components"
-import Layout from "../components/layout"
+import React from "react";
+import { graphql, Link as GLink } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import Gallery from "../components/gallery";
+import styled from "styled-components";
+import Layout from "../components/layout";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -12,14 +12,13 @@ import {
   FacebookIcon,
   TwitterIcon,
   TumblrIcon,
-  EmailIcon
-} from "react-share"
-import { colors } from '../styles/theme'
+  EmailIcon,
+} from "react-share";
 
-const Link = styled(RLink)`
+const Link = styled(GLink)`
   text-decoration: none;
-`
-const ShareButton = styled(Button)`
+`;
+const ShareButton = styled.button`
   padding: 0 0.2em;
   width: fit-content;
   background: none;
@@ -27,76 +26,82 @@ const ShareButton = styled(Button)`
     opacity: 0.8;
     cursor: pointer;
   }
-`
+`;
 
-const Left = styled(Box)`
-`
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+const Section = styled.section`
+  width: 100%;
+  padding: 4px;
+  @media (min-width: 768px) {
+    width: 50%;
+    padding: 4px 8px;
+  }
+`;
 
-const Content = styled(Text)`
-  max-width: 36em;
-`
+const Back = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
 
-const BlogPostTemplate = ({ data: { markdownRemark } }) => {
-  const images = []
-  markdownRemark.frontmatter.photos.forEach(e => {
+const Social = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const BlogPostTemplate = ({ data: { mdx } }) => {
+  const images = [];
+  mdx.frontmatter.photos.forEach((e) => {
     images.push({
       id: e.childImageSharp.id,
-      fluid: e.childImageSharp.fluid
-    })
-  })
-  const shareUrl = `http://yveslebras.com/${markdownRemark.fields.slug}`
+      fluid: e.childImageSharp.fluid,
+    });
+  });
   return (
     <Layout>
-      <Flex width={1} flexWrap="wrap">
-        <Left width={[1, 1, 1 / 2, 1 / 2]} p={[1, 2]} pr={[1, 2, 4]}>
-          <Flex width={1} justifyContent="flex-end" alignItems="flex-end">
-            <Link as={GLink} color="secondary" to="/">
-              <Text fontFamily="sUI">Retour</Text>
+      <Container>
+        <Section>
+          <Back>
+            <Link to="/">
+              <p>Retour</p>
             </Link>
-          </Flex>
-          <Heading
-            as="h3"
-            color="secondary"
-            fontWeight={"heading"}
-            fontFamily="sUI"
-          >
-            {markdownRemark.frontmatter.title}
-          </Heading>
-          <Flex width={1} justifyContent="flex-end">
-            <ShareButton as={FacebookShareButton} url={shareUrl}>
+          </Back>
+          <h3>{mdx.frontmatter.title}</h3>
+          <Social>
+            <ShareButton as={FacebookShareButton} url={"#"}>
               <FacebookIcon size={32} round={true} />
             </ShareButton>
-            <ShareButton as={TwitterShareButton} width="3em" url={shareUrl}>
+            <ShareButton as={TwitterShareButton} width="3em" url={"#"}>
               <TwitterIcon size={32} round={true} />
             </ShareButton>
-            <ShareButton as={TumblrShareButton} width="3em" url={shareUrl}>
+            <ShareButton as={TumblrShareButton} width="3em" url={"#"}>
               <TumblrIcon size={32} round={true} />
             </ShareButton>
-            <ShareButton as={EmailShareButton} width="3em" url={shareUrl}>
+            <ShareButton as={EmailShareButton} width="3em" url={"#"}>
               <EmailIcon size={32} round={true} />
             </ShareButton>
-          </Flex>
-          <Content
-            fontFamily="sUI"
-            color="secondary"
-            dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
-          />
-        </Left>
-        <Box width={[1, 1, 1 / 2, 1 / 2]}>
+          </Social>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </Section>
+        <Section>
           <Gallery edges={images} />
-        </Box>
-      </Flex>
+        </Section>
+      </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       id
-      html
+      body
       fields {
         slug
       }
@@ -113,4 +118,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

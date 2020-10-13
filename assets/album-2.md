@@ -1,7 +1,7 @@
 ---
 title: album 2
 photos:
-- "./pontypool.jpg"
+- "./images/pontypool.jpg"
 
 ---
 Test
